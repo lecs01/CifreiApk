@@ -21,8 +21,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_column="2"
+                android:fontFamily="@font/armata"
                 android:text="Título:"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/tituloCifra"
@@ -30,6 +32,7 @@
                 android:layout_height="wrap_content"
                 android:background="@color/primaryText"
                 android:ems="10"
+                android:fontFamily="@font/armata"
                 android:gravity="start|top"
                 android:hint="Nome da Cifra Aqui"
                 android:inputType="textMultiLine" />
@@ -45,8 +48,10 @@
                 android:id="@+id/textView6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/armata"
                 android:text="Tom: "
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
             <Spinner
                 android:id="@+id/spinner"
@@ -61,8 +66,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_column="2"
+                android:fontFamily="@font/armata"
                 android:text="Artista: "
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/artistaCifra"
@@ -70,6 +77,7 @@
                 android:layout_height="wrap_content"
                 android:background="@color/primaryText"
                 android:ems="10"
+                android:fontFamily="@font/armata"
                 android:gravity="start|top"
                 android:hint="Nome do Artista Aqui"
                 android:inputType="textMultiLine" />
@@ -84,8 +92,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_column="2"
+                android:fontFamily="@font/armata"
                 android:text="Gênero: "
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/generoCifra"
@@ -93,6 +103,7 @@
                 android:layout_height="wrap_content"
                 android:background="@color/primaryText"
                 android:ems="10"
+                android:fontFamily="@font/armata"
                 android:gravity="start|top"
                 android:hint="Nome do Gênero Aqui"
                 android:inputType="textMultiLine" />
@@ -111,7 +122,9 @@
         android:background="@color/primaryText"
         android:ems="10"
         android:gravity="start|top"
+        android:hint="Cole ou Digite a Letra Aqui..."
         android:inputType="textMultiLine"
+        android:visibility="visible"
         app:layout_constraintBottom_toTopOf="@+id/next"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -123,7 +136,9 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:background="@drawable/button_orange"
+        android:fontFamily="@font/armata"
         android:text="Próximo"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -133,7 +148,10 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:background="@drawable/button_orange"
+        android:fontFamily="@font/armata"
+        android:onClick="voltarMain"
         android:text="Cancelar"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/next" />
 </androidx.constraintlayout.widget.ConstraintLayout>

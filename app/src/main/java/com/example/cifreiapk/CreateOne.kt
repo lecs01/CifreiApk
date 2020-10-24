@@ -1,6 +1,7 @@
 package com.example.cifreiapk
 
 import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
@@ -22,6 +23,17 @@ class CreateOne : AppCompatActivity() {
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
             spinner.adapter = adapter
         }
+    }
+
+    fun voltarMain (view: View) {
+        val intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
+        finish()
+    }
+
+    fun criarCifra (view: View) {
+        val intent = Intent(this, CreateTwo::class.java)
+        startActivity(intent)
     }
 }
 
