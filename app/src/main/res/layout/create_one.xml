@@ -137,6 +137,7 @@
         android:layout_margin="10dp"
         android:background="@drawable/button_orange"
         android:fontFamily="@font/armata"
+        android:onClick="edicaoCifra"
         android:text="Próximo"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"

@@ -31,10 +31,12 @@ class CreateOne : AppCompatActivity() {
         finish()
     }
 
-    fun criarCifra (view: View) {
+    fun edicaoCifra (view: View) {
         val intent = Intent(this, CreateTwo::class.java)
         startActivity(intent)
     }
+
+
 }
 
 class SpinnerActivity : Activity(), AdapterView.OnItemSelectedListener {
