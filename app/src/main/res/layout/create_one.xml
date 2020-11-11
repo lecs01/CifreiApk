@@ -27,7 +27,7 @@
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/tituloCifra"
+                android:id="@+id/nomeMusica"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@color/primaryText"
@@ -72,7 +72,7 @@
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/artistaCifra"
+                android:id="@+id/nomeArtista"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@color/primaryText"
@@ -98,7 +98,7 @@
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/generoCifra"
+                android:id="@+id/generoMusica"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@color/primaryText"
@@ -125,19 +125,19 @@
         android:hint="Cole ou Digite a Letra Aqui..."
         android:inputType="textMultiLine"
         android:visibility="visible"
-        app:layout_constraintBottom_toTopOf="@+id/next"
+        app:layout_constraintBottom_toTopOf="@+id/btnProximo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tableLayout" />
 
     <Button
-        android:id="@+id/next"
+        android:id="@+id/btnProximo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:background="@drawable/button_orange"
         android:fontFamily="@font/armata"
-        android:onClick="edicaoCifra"
+        android:onClick="onClick"
         android:text="Próximo"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -154,5 +154,5 @@
         android:text="Cancelar"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/next" />
+        app:layout_constraintEnd_toStartOf="@+id/btnProximo" />
 </androidx.constraintlayout.widget.ConstraintLayout>
