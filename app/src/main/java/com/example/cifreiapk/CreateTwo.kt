@@ -6,6 +6,7 @@ import android.provider.AlarmClock.EXTRA_MESSAGE
 import android.view.View
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat.startActivity
 import org.w3c.dom.Text
 
 class CreateTwo : AppCompatActivity() {
@@ -23,13 +24,14 @@ class CreateTwo : AppCompatActivity() {
         lMusica = findViewById(R.id.lMusica)
 
         val bundle = intent.extras
-        var s:String? = null
-        s = bundle!!.getString("key1", "Default")
+
+        nMusica?.setText(bundle!!.getString("nomeMusica"))
 
     }
 
-    fun voltarEdicao(view: View){
-        val intent = Intent (this, CreateOne::class.java)
+
+    fun voltarEdicao(view: View) {
+        val intent = Intent(this, CreateOne::class.java)
         startActivity(intent)
 
     }

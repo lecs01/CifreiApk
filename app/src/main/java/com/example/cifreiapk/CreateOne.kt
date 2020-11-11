@@ -35,11 +35,8 @@ class CreateOne : AppCompatActivity(), View.OnClickListener {
         var nomeArtista: EditText? = findViewById(R.id.nomeArtista)
         var letraMusica: EditText? = findViewById(R.id.letraMusica)
 
-        if (nomeMusica?.equals("")!! || nomeArtista?.equals("")!! || letraMusica?.equals("")!!) {
-            val text = "Por favor, insira os dados da Música!"
-            val duration = Toast.LENGTH_SHORT
-            val toast = Toast.makeText(applicationContext, text,duration)
-            toast.show()
+        if (nomeMusica?.text.toString().isNullOrEmpty() || nomeArtista?.text.toString().isNullOrEmpty() || letraMusica?.text.toString().isNullOrEmpty()){
+            Toast.makeText(this,"Insira os dados para criar a cifra!", Toast.LENGTH_SHORT).show()
         }else{
             val bundle = Bundle()
             bundle.putString("nomeMusica", nomeMusica.toString())
