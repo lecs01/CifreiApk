@@ -35,13 +35,13 @@ class CreateOne : AppCompatActivity(), View.OnClickListener {
         var nomeArtista: EditText? = findViewById(R.id.nomeArtista)
         var letraMusica: EditText? = findViewById(R.id.letraMusica)
 
-        if (nomeMusica?.text.toString().isNullOrEmpty() || nomeArtista?.text.toString().isNullOrEmpty() || letraMusica?.text.toString().isNullOrEmpty()){
+        if (nomeMusica?.text.toString().isEmpty() || nomeArtista?.text.toString().isEmpty() || letraMusica?.text.toString().isEmpty()){
             Toast.makeText(this,"Insira os dados para criar a cifra!", Toast.LENGTH_SHORT).show()
         }else{
             val bundle = Bundle()
-            bundle.putString("nomeMusica", nomeMusica.toString())
-            bundle.putString("nomeArtista", nomeArtista.toString())
-            bundle.putString("letraMusica", letraMusica.toString())
+            bundle.putString("nomeMusica", nomeMusica!!.text.toString())
+            bundle.putString("nomeArtista", nomeArtista!!.text.toString())
+            bundle.putString("letraMusica", letraMusica!!.text.toString())
             intent = Intent(this, CreateTwo::class.java)
             intent.putExtras(bundle)
             startActivity(intent)

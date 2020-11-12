@@ -2,12 +2,9 @@ package com.example.cifreiapk
 
 import android.content.Intent
 import android.os.Bundle
-import android.provider.AlarmClock.EXTRA_MESSAGE
 import android.view.View
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat.startActivity
-import org.w3c.dom.Text
 
 class CreateTwo : AppCompatActivity() {
 
@@ -25,7 +22,9 @@ class CreateTwo : AppCompatActivity() {
 
         val bundle = intent.extras
 
-        nMusica?.setText(bundle!!.getString("nomeMusica"))
+        nMusica?.setText(bundle!!.getString("nomeMusica","Default"))
+        nArtista?.setText(bundle!!.getString("nomeArtista","Default"))
+        lMusica?.setText(bundle!!.getString("letraMusica", "Default"))
 
     }
 
