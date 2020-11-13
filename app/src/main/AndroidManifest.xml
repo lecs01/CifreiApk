@@ -16,7 +16,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".CreateOne"/>
+        <activity android:name=".CreateOne"
+            android:windowSoftInputMode="adjustResize"/>
         <activity android:name=".CreateTwo"/>
     </application>
 
