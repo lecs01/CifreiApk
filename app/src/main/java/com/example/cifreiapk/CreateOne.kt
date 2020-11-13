@@ -38,6 +38,9 @@ class CreateOne : AppCompatActivity(), View.OnClickListener {
         if (nomeMusica?.text.toString().isEmpty() || nomeArtista?.text.toString().isEmpty() || letraMusica?.text.toString().isEmpty()){
             Toast.makeText(this,"Insira os dados para criar a cifra!", Toast.LENGTH_SHORT).show()
         }else{
+
+
+
             val bundle = Bundle()
             bundle.putString("nomeMusica", nomeMusica!!.text.toString())
             bundle.putString("nomeArtista", nomeArtista!!.text.toString())
