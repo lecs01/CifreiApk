@@ -17,8 +17,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".CreateOne"
-            android:windowSoftInputMode="adjustResize"/>
-        <activity android:name=".CreateTwo"/>
+            android:windowSoftInputMode="stateHidden|adjustResize"/>
+        <activity android:name=".CreateTwo"
+            android:windowSoftInputMode="stateHidden"/>
     </application>
 
 </manifest>

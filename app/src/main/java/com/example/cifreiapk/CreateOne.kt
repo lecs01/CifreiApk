@@ -60,7 +60,7 @@ class CreateOne : AppCompatActivity(), View.OnClickListener {
 
 class SpinnerActivity : Activity(), AdapterView.OnItemSelectedListener {
     override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
-        Toast.makeText(applicationContext, "Nothing Selected", Toast.LENGTH_SHORT)
+        TODO("Not yet implemented")
     }
 
     override fun onNothingSelected(p0: AdapterView<*>?) {
