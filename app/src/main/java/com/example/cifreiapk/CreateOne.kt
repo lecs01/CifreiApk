@@ -10,9 +10,12 @@ import androidx.appcompat.app.AppCompatActivity
 
 class CreateOne : AppCompatActivity(), View.OnClickListener {
 
+    var notaSelecionada: String = "A"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.create_one)
+
+
 
         val spinner: Spinner = findViewById(R.id.spinner)
         ArrayAdapter.createFromResource(
@@ -22,6 +25,16 @@ class CreateOne : AppCompatActivity(), View.OnClickListener {
         ).also { adapter ->
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
             spinner.adapter = adapter
+        }
+        
+        spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                notaSelecionada = (view as TextView).text.toString()
+            }
+
+            override fun onNothingSelected(p0: AdapterView<*>?) {
+                notaSelecionada = "A"
+            }
         }
 
         var btnProximo: Button? = null
@@ -45,6 +58,7 @@ class CreateOne : AppCompatActivity(), View.OnClickListener {
             bundle.putString("nomeMusica", nomeMusica!!.text.toString())
             bundle.putString("nomeArtista", nomeArtista!!.text.toString())
             bundle.putString("letraMusica", letraMusica!!.text.toString())
+            bundle.putInt("notaSelecionada", notaSelecionada)
             intent = Intent(this, CreateTwo::class.java)
             intent.putExtras(bundle)
             startActivity(intent)
@@ -56,6 +70,10 @@ class CreateOne : AppCompatActivity(), View.OnClickListener {
         startActivity(intent)
         finish()
     }
+}
+
+private fun Bundle.putInt(tom: String, notaSelecionada: String) {
+    TODO("Not yet implemented")
 }
 
 class SpinnerActivity : Activity(), AdapterView.OnItemSelectedListener {
