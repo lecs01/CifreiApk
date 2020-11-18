@@ -7,7 +7,6 @@ import android.provider.AlarmClock.EXTRA_MESSAGE
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
-import java.io.BufferedReader
 
 class CreateOne : AppCompatActivity(), View.OnClickListener {
 
@@ -53,13 +52,7 @@ class CreateOne : AppCompatActivity(), View.OnClickListener {
             Toast.makeText(this,"Insira os dados para criar a cifra!", Toast.LENGTH_SHORT).show()
         }else{
 
-            val reader = BufferedReader(inputStream.reader())
-            var content: String
-            try {
-                content = reader.readText()
-            } finally {
-                reader.close()
-            }
+
 
             val bundle = Bundle()
             bundle.putString("nomeMusica", nomeMusica!!.text.toString())
