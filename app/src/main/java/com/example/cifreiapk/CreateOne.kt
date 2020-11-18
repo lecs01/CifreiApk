@@ -72,8 +72,8 @@ class CreateOne : AppCompatActivity(), View.OnClickListener {
     }
 }
 
-private fun Bundle.putInt(tom: String, notaSelecionada: String) {
-    TODO("Not yet implemented")
+private fun Bundle.putInt(s: String, notaSelecionada: String) {
+
 }
 
 class SpinnerActivity : Activity(), AdapterView.OnItemSelectedListener {
