@@ -39,6 +39,7 @@
             android:background="@color/primaryColor"
             android:fontFamily="@font/armata"
             android:hint="I"
+            android:onClick="clickNote"
             android:textAlignment="center"
             android:textSize="24sp"
             android:textStyle="bold" />
@@ -51,6 +52,7 @@
             android:background="@color/primaryColor"
             android:fontFamily="@font/armata"
             android:hint="II"
+            android:onClick="clickNote"
             android:textAlignment="center"
             android:textSize="24sp"
             android:textStyle="bold" />
@@ -63,6 +65,7 @@
             android:background="@color/primaryColor"
             android:fontFamily="@font/armata"
             android:hint="III"
+            android:onClick="clickNote"
             android:textAlignment="center"
             android:textSize="24sp"
             android:textStyle="bold" />
@@ -75,6 +78,7 @@
             android:background="@color/primaryColor"
             android:fontFamily="@font/armata"
             android:hint="IV"
+            android:onClick="clickNote"
             android:textAlignment="center"
             android:textSize="24sp"
             android:textStyle="bold" />
@@ -87,6 +91,7 @@
             android:background="@color/primaryColor"
             android:fontFamily="@font/armata"
             android:hint="V"
+            android:onClick="clickNote"
             android:textAlignment="center"
             android:textSize="24sp"
             android:textStyle="bold" />
@@ -99,6 +104,7 @@
             android:background="@color/primaryColor"
             android:fontFamily="@font/armata"
             android:hint="VI"
+            android:onClick="clickNote"
             android:textAlignment="center"
             android:textSize="24sp"
             android:textStyle="bold" />
@@ -111,6 +117,7 @@
             android:background="@color/primaryColor"
             android:fontFamily="@font/armata"
             android:hint="VII"
+            android:onClick="clickNote"
             android:textAlignment="center"
             android:textSize="24sp"
             android:textStyle="bold" />
