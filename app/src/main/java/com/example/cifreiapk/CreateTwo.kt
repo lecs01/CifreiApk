@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
 class CreateTwo : AppCompatActivity() {
@@ -72,5 +73,9 @@ class CreateTwo : AppCompatActivity() {
         val intent = Intent(this, CreateOne::class.java)
         startActivity(intent)
 
+    }
+
+    fun clickNote(view: View) {
+        Toast.makeText(this, ((view) as TextView).text, Toast.LENGTH_SHORT).show()
     }
 }

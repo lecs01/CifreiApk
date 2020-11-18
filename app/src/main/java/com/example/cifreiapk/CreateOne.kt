@@ -7,6 +7,7 @@ import android.provider.AlarmClock.EXTRA_MESSAGE
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import com.example.cifreiapk.utils.TextoUtils
 
 class CreateOne : AppCompatActivity(), View.OnClickListener {
 
@@ -14,7 +15,6 @@ class CreateOne : AppCompatActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.create_one)
-
 
 
         val spinner: Spinner = findViewById(R.id.spinner)
@@ -26,9 +26,14 @@ class CreateOne : AppCompatActivity(), View.OnClickListener {
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
             spinner.adapter = adapter
         }
-        
+
         spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+            override fun onItemSelected(
+                parent: AdapterView<*>?,
+                view: View?,
+                position: Int,
+                id: Long,
+            ) {
                 notaSelecionada = (view as TextView).text.toString()
             }
 
@@ -48,16 +53,14 @@ class CreateOne : AppCompatActivity(), View.OnClickListener {
         var nomeArtista: EditText? = findViewById(R.id.nomeArtista)
         var letraMusica: EditText? = findViewById(R.id.letraMusica)
 
-        if (nomeMusica?.text.toString().isEmpty() || nomeArtista?.text.toString().isEmpty() || letraMusica?.text.toString().isEmpty()){
-            Toast.makeText(this,"Insira os dados para criar a cifra!", Toast.LENGTH_SHORT).show()
-        }else{
-
-
-
+        if (nomeMusica?.text.toString().isEmpty() || nomeArtista?.text.toString()
+                .isEmpty() || letraMusica?.text.toString().isEmpty()) {
+            Toast.makeText(this, "Insira os dados para criar a cifra!", Toast.LENGTH_SHORT).show()
+        } else {
             val bundle = Bundle()
             bundle.putString("nomeMusica", nomeMusica!!.text.toString())
             bundle.putString("nomeArtista", nomeArtista!!.text.toString())
-            bundle.putString("letraMusica", letraMusica!!.text.toString())
+            bundle.putString("letraMusica", TextoUtils.convertWithBlankLines(letraMusica!!.text.toString()))
             bundle.putString("notaSelecionada", notaSelecionada)
             intent = Intent(this, CreateTwo::class.java)
             intent.putExtras(bundle)
