@@ -40,6 +40,8 @@
             android:fontFamily="@font/armata"
             android:hint="I"
             android:textAlignment="center"
+            android:textColor="@color/primaryText"
+            android:textIsSelectable="true"
             android:textSize="24sp"
             android:textStyle="bold" />
 
@@ -52,6 +54,8 @@
             android:fontFamily="@font/armata"
             android:hint="II"
             android:textAlignment="center"
+            android:textColor="@color/primaryText"
+            android:textIsSelectable="true"
             android:textSize="24sp"
             android:textStyle="bold" />
 
@@ -64,6 +68,8 @@
             android:fontFamily="@font/armata"
             android:hint="III"
             android:textAlignment="center"
+            android:textColor="@color/primaryText"
+            android:textIsSelectable="true"
             android:textSize="24sp"
             android:textStyle="bold" />
 
@@ -76,6 +82,8 @@
             android:fontFamily="@font/armata"
             android:hint="IV"
             android:textAlignment="center"
+            android:textColor="@color/primaryText"
+            android:textIsSelectable="true"
             android:textSize="24sp"
             android:textStyle="bold" />
 
@@ -88,6 +96,8 @@
             android:fontFamily="@font/armata"
             android:hint="V"
             android:textAlignment="center"
+            android:textColor="@color/primaryText"
+            android:textIsSelectable="true"
             android:textSize="24sp"
             android:textStyle="bold" />
 
@@ -100,6 +110,8 @@
             android:fontFamily="@font/armata"
             android:hint="VI"
             android:textAlignment="center"
+            android:textColor="@color/primaryText"
+            android:textIsSelectable="true"
             android:textSize="24sp"
             android:textStyle="bold" />
 
@@ -112,6 +124,8 @@
             android:fontFamily="@font/armata"
             android:hint="VII"
             android:textAlignment="center"
+            android:textColor="@color/primaryText"
+            android:textIsSelectable="true"
             android:textSize="24sp"
             android:textStyle="bold" />
     </LinearLayout>
