@@ -33,6 +33,7 @@ class CreateTwo : AppCompatActivity() {
             "Eb" to listOf<String>("Eb", "Fm", "Gm", "Ab", "Bb", "Cm", "Dø"),
             "E" to listOf<String>("E", "F#m", "G#m", "A", "B", "C#m", "D#ø"),
             "F" to listOf<String>("F", "Gm", "Am", "Bb", "C", "Dm", "Eø"),
+            "F#" to listOf<String>("F#", "G#m", "A#m", "B", "C#", "D#m", "E#ø"),
             "G" to listOf<String>("G", "Am", "Bm", "C", "D", "Em", "F#ø"),
             "Ab" to listOf<String>("Ab", "Bbm", "Cm", "Db", "Eb", "Fm", "Gø"),
             "A" to listOf<String>("A", "Bm", "C#m", "D", "E", "F#m", "G#ø"),
