@@ -49,9 +49,21 @@ class CreateTwo : AppCompatActivity() {
 
         val listaDeNotas = mapNotes.get(indiceNotaSelecionada)
 
-        //textViewi.text = listaDeNotas.get(0)
+        val textViewI = findViewById<TextView>(R.id.textViewI)
+        val textViewII = findViewById<TextView>(R.id.textViewII)
+        val textViewIII = findViewById<TextView>(R.id.textViewIII)
+        val textViewIV = findViewById<TextView>(R.id.textViewIV)
+        val textViewV = findViewById<TextView>(R.id.textViewV)
+        val textViewVI = findViewById<TextView>(R.id.textViewVI)
+        val textViewVII = findViewById<TextView>(R.id.textViewVII)
 
-
+        textViewI.text = listaDeNotas?.get(0)
+        textViewII.text = listaDeNotas?.get(1)
+        textViewIII.text = listaDeNotas?.get(2)
+        textViewIV.text = listaDeNotas?.get(3)
+        textViewV.text = listaDeNotas?.get(4)
+        textViewVI.text = listaDeNotas?.get(5)
+        textViewVII.text = listaDeNotas?.get(6)
     }
 
 

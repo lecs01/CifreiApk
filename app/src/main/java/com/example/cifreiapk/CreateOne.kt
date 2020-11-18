@@ -58,7 +58,7 @@ class CreateOne : AppCompatActivity(), View.OnClickListener {
             bundle.putString("nomeMusica", nomeMusica!!.text.toString())
             bundle.putString("nomeArtista", nomeArtista!!.text.toString())
             bundle.putString("letraMusica", letraMusica!!.text.toString())
-            bundle.putInt("notaSelecionada", notaSelecionada)
+            bundle.putString("notaSelecionada", notaSelecionada)
             intent = Intent(this, CreateTwo::class.java)
             intent.putExtras(bundle)
             startActivity(intent)
