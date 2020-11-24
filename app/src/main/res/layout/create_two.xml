@@ -6,24 +6,12 @@
     android:layout_height="match_parent"
     android:background="@drawable/background">
 
-    <TextView
-        android:id="@+id/textView12"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_margin="10dp"
-        android:background="@color/primaryText"
-        android:translationZ="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/scrollView2"
-        app:layout_constraintStart_toStartOf="@+id/scrollView2"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
-
     <LinearLayout
-        android:id="@+id/linearLayout2"
+        android:id="@+id/reguaDeNotas"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:layout_marginRight="5dp"
         android:orientation="horizontal"
         android:translationZ="2dp"
@@ -32,7 +20,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/textViewI"
+            android:id="@+id/textViewAcordeI"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -47,7 +35,7 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/textViewII"
+            android:id="@+id/textViewAcordeII"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -62,7 +50,7 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/textViewIII"
+            android:id="@+id/textViewAcordeIII"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -77,7 +65,7 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/textViewIV"
+            android:id="@+id/textViewAcordeIV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -92,7 +80,7 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/textViewV"
+            android:id="@+id/textViewAcordeV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -107,7 +95,7 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/textViewVI"
+            android:id="@+id/textViewAcordeVI"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -122,7 +110,7 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/textViewVII"
+            android:id="@+id/textViewAcordeVII"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -141,32 +129,41 @@
         android:id="@+id/scrollView2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
         android:translationZ="1dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0">
+        app:layout_constraintVertical_bias="0.0">
 
 
         <LinearLayout
+            android:id="@+id/cabecalho"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
             android:layout_marginRight="10dp"
             android:background="@color/primaryText"
             android:orientation="vertical"
-            android:padding="10dp"
-            android:paddingRight="5dp"
+            android:paddingStart="10dp"
+            android:paddingLeft="10dp"
+            android:paddingEnd="10dp"
+            android:paddingBottom="10dp"
             android:translationZ="1dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="RtlSymmetry">
 
             <LinearLayout
+                android:id="@+id/exibeTituloArtista"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="60dp"
@@ -192,7 +189,8 @@
                     android:textAlignment="viewStart"
                     android:textColor="@color/primaryDark"
                     android:textSize="14sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    tools:ignore="HardcodedText" />
 
                 <TextView
                     android:id="@+id/nArtista"
@@ -208,6 +206,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/exibeTom"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="5dp"
@@ -221,7 +220,8 @@
                     android:gravity="end"
                     android:text="Tom: "
                     android:textColor="@color/primaryDark"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    tools:ignore="HardcodedText" />
 
                 <TextView
                     android:id="@+id/ntom"
@@ -232,10 +232,12 @@
                     android:text="C"
                     android:textAlignment="textStart"
                     android:textColor="@color/primaryDark"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    tools:ignore="HardcodedText,RtlCompat" />
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/inserirIntro"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -249,7 +251,8 @@
                     android:text="Intro: "
                     android:textAlignment="viewStart"
                     android:textColor="@color/primaryColor"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    tools:ignore="HardcodedText" />
 
                 <EditText
                     android:id="@+id/intro"
@@ -259,7 +262,11 @@
                     android:background="@null"
                     android:ems="10"
                     android:fontFamily="@font/armata"
-                    android:imeOptions="flagNoEnterAction" />
+                    android:imeOptions="flagNoEnterAction"
+                    android:textColor="@color/primaryDark"
+                    android:textStyle="bold"
+                    android:text="                                            "
+                    tools:ignore="Autofill,InefficientWeight,LabelFor,TextFields" />
             </LinearLayout>
 
             <EditText
@@ -267,24 +274,40 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="10dp"
+                android:layout_weight="1"
                 android:background="@null"
-                android:fontFamily="@font/armata" />
+                android:fontFamily="@font/armata"
+                tools:ignore="Autofill,InefficientWeight,LabelFor,TextFields" />
 
         </LinearLayout>
     </ScrollView>
 
+    <TextView
+        android:id="@+id/rodapeBranco"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="10dp"
+        android:background="@color/primaryText"
+        android:translationZ="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <Button
-        android:id="@+id/concluir"
+        android:id="@+id/salvarArquivo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
         android:background="@drawable/button_orange"
         android:fontFamily="@font/armata"
-        android:text="Concluir"
+        android:onClick="salvarArquivo"
+        android:text="Salvar"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:ignore="HardcodedText" />
 
     <Button
         android:id="@+id/voltar"
@@ -297,6 +320,7 @@
         android:text="VOLTAR"
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/concluir" />
+        app:layout_constraintEnd_toStartOf="@+id/salvarArquivo"
+        tools:ignore="HardcodedText" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,6 +3,8 @@ package com.example.cifreiapk
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -23,8 +25,7 @@ class CreateTwo : AppCompatActivity() {
 
         val bundle = intent.extras
 
-        val mapNotes
-                = mapOf<String, List<String>>(
+        val mapNotes = mapOf<String, List<String>>(
             "A" to listOf<String>("A", "Bm", "C#m", "D", "E", "F#m", "G#7ø"),
             "Bb" to listOf<String>("Bb", "Cm", "Dm", "Eb", "F", "Gm", "Aø"),
             "B" to listOf<String>("B", "C#m", "D#m", "E", "F#", "G#m", "A#ø"),
@@ -39,35 +40,36 @@ class CreateTwo : AppCompatActivity() {
             "Ab" to listOf<String>("Ab", "Bbm", "Cm", "Db", "Eb", "Fm", "Gø"),
             "A" to listOf<String>("A", "Bm", "C#m", "D", "E", "F#m", "G#ø"),
             "Bb" to listOf<String>("Bb", "Cm", "Dm", "Eb", "F", "Gm", "Aø"),
-
         )
 
-        nMusica?.setText(bundle!!.getString("nomeMusica","Default"))
-        nArtista?.setText(bundle!!.getString("nomeArtista","Default"))
-        lMusica?.setText(bundle!!.getString("letraMusica", "Default"))
+        nMusica?.text = bundle!!.getString("nomeMusica", "Default")
+        nArtista?.text = bundle!!.getString("nomeArtista", "Default")
+        lMusica?.text = bundle!!.getString("letraMusica", "Default")
 
-        val indiceNotaSelecionada
-                = bundle!!.getString("notaSelecionada")
+        val indiceTomSelecionado = bundle!!.getString("tomSelecionado")
 
-        val listaDeNotas = mapNotes.get(indiceNotaSelecionada)
+        val listaDeAcordes = mapNotes[indiceTomSelecionado]
 
-        val textViewI = findViewById<TextView>(R.id.textViewI)
-        val textViewII = findViewById<TextView>(R.id.textViewII)
-        val textViewIII = findViewById<TextView>(R.id.textViewIII)
-        val textViewIV = findViewById<TextView>(R.id.textViewIV)
-        val textViewV = findViewById<TextView>(R.id.textViewV)
-        val textViewVI = findViewById<TextView>(R.id.textViewVI)
-        val textViewVII = findViewById<TextView>(R.id.textViewVII)
+        val acordeI = findViewById<TextView>(R.id.textViewAcordeI)
+        val acordeII = findViewById<TextView>(R.id.textViewAcordeII)
+        val acordeIII = findViewById<TextView>(R.id.textViewAcordeIII)
+        val acordeIV = findViewById<TextView>(R.id.textViewAcordeIV)
+        val acordeV = findViewById<TextView>(R.id.textViewAcordeV)
+        val acordeVI = findViewById<TextView>(R.id.textViewAcordeVI)
+        val acordeVII = findViewById<TextView>(R.id.textViewAcordeVII)
 
-        textViewI.text = listaDeNotas?.get(0)
-        textViewII.text = listaDeNotas?.get(1)
-        textViewIII.text = listaDeNotas?.get(2)
-        textViewIV.text = listaDeNotas?.get(3)
-        textViewV.text = listaDeNotas?.get(4)
-        textViewVI.text = listaDeNotas?.get(5)
-        textViewVII.text = listaDeNotas?.get(6)
+        acordeI.text = listaDeAcordes?.get(0)
+        acordeII.text = listaDeAcordes?.get(1)
+        acordeIII.text = listaDeAcordes?.get(2)
+        acordeIV.text = listaDeAcordes?.get(3)
+        acordeV.text = listaDeAcordes?.get(4)
+        acordeVI.text = listaDeAcordes?.get(5)
+        acordeVII.text = listaDeAcordes?.get(6)
+
+        fun clickNote(view: View) {
+            Toast.makeText(this, ((view) as TextView).text, Toast.LENGTH_SHORT).show()
+        }
     }
-
 
     fun voltarEdicao(view: View) {
         val intent = Intent(this, CreateOne::class.java)
@@ -75,7 +77,7 @@ class CreateTwo : AppCompatActivity() {
 
     }
 
-    fun clickNote(view: View) {
-        Toast.makeText(this, ((view) as TextView).text, Toast.LENGTH_SHORT).show()
+    fun salvarArquivo(view: View) {
+
     }
 }

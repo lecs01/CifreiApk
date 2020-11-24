@@ -11,7 +11,7 @@ import com.example.cifreiapk.utils.TextoUtils
 
 class CreateOne : AppCompatActivity(), View.OnClickListener {
 
-    var notaSelecionada: String = "A"
+    var tomSelecionado: String = "C"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.create_one)
@@ -34,11 +34,11 @@ class CreateOne : AppCompatActivity(), View.OnClickListener {
                 position: Int,
                 id: Long,
             ) {
-                notaSelecionada = (view as TextView).text.toString()
+                tomSelecionado = (view as TextView).text.toString()
             }
 
             override fun onNothingSelected(p0: AdapterView<*>?) {
-                notaSelecionada = "A"
+                tomSelecionado = "C"
             }
         }
 
@@ -61,7 +61,7 @@ class CreateOne : AppCompatActivity(), View.OnClickListener {
             bundle.putString("nomeMusica", nomeMusica!!.text.toString())
             bundle.putString("nomeArtista", nomeArtista!!.text.toString())
             bundle.putString("letraMusica", TextoUtils.convertWithBlankLines(letraMusica!!.text.toString()))
-            bundle.putString("notaSelecionada", notaSelecionada)
+            bundle.putString("tomSelecionado", tomSelecionado)
             intent = Intent(this, CreateTwo::class.java)
             intent.putExtras(bundle)
             startActivity(intent)
@@ -75,7 +75,7 @@ class CreateOne : AppCompatActivity(), View.OnClickListener {
     }
 }
 
-private fun Bundle.putInt(s: String, notaSelecionada: String) {
+private fun Bundle.putInt(s: String, tomSelecionado: String) {
 
 }
 
