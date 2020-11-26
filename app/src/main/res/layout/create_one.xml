@@ -17,6 +17,15 @@
             android:layout_height="match_parent">
 
             <TextView
+                android:id="@+id/textView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/armata"
+                android:text="Tom: "
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
                 android:id="@+id/textView4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -44,20 +53,10 @@
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp">
 
-            <TextView
-                android:id="@+id/textView6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/armata"
-                android:text="Tom: "
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
             <Spinner
                 android:id="@+id/spinner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_column="1"
                 android:entries="@array/tom"
                 android:popupBackground="@drawable/background"
                 android:spinnerMode="dropdown" />

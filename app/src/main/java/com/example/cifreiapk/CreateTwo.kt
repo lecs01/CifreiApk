@@ -1,13 +1,15 @@
 package com.example.cifreiapk
 
 import android.content.Intent
+import android.graphics.Typeface
 import android.os.Bundle
+import android.text.SpannableString
+import android.text.style.StyleSpan
 import android.view.View
-import android.view.animation.Animation
-import android.view.animation.AnimationUtils
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import android.text.Spannable as Spannable
 
 class CreateTwo : AppCompatActivity() {
 
@@ -15,13 +17,17 @@ class CreateTwo : AppCompatActivity() {
     var nArtista: TextView? = null
     var lMusica: TextView? = null
 
+    var nTom: TextView? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.create_two)
 
-        nMusica = findViewById(R.id.nMusica)
-        nArtista = findViewById(R.id.nArtista)
-        lMusica = findViewById(R.id.lMusica)
+        nMusica = findViewById(R.id.textViewMostrarTitulo)
+        nArtista = findViewById(R.id.textViewMostrarArtista)
+        lMusica = findViewById(R.id.texViewMostrarLetra)
+
+        nTom = findViewById(R.id.textViewMostrarTom)
 
         val bundle = intent.extras
 
@@ -45,6 +51,7 @@ class CreateTwo : AppCompatActivity() {
         nMusica?.text = bundle!!.getString("nomeMusica", "Default")
         nArtista?.text = bundle!!.getString("nomeArtista", "Default")
         lMusica?.text = bundle!!.getString("letraMusica", "Default")
+        nTom?.text = bundle!!.getString("tomSelecionado")
 
         val indiceTomSelecionado = bundle!!.getString("tomSelecionado")
 
