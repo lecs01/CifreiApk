@@ -302,7 +302,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/salvarArquivo"
+        android:id="@+id/btnSalvarArquivo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="10dp"
@@ -327,7 +327,7 @@
         android:text="VOLTAR"
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/salvarArquivo"
+        app:layout_constraintEnd_toStartOf="@+id/btnSalvarArquivo"
         tools:ignore="HardcodedText" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

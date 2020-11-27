@@ -1,15 +1,11 @@
 package com.example.cifreiapk
 
 import android.content.Intent
-import android.graphics.Typeface
 import android.os.Bundle
-import android.text.SpannableString
-import android.text.style.StyleSpan
 import android.view.View
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
-import android.text.Spannable as Spannable
+import java.io.IOException
 
 class CreateTwo : AppCompatActivity() {
 
@@ -26,7 +22,6 @@ class CreateTwo : AppCompatActivity() {
         nMusica = findViewById(R.id.textViewMostrarTitulo)
         nArtista = findViewById(R.id.textViewMostrarArtista)
         lMusica = findViewById(R.id.texViewMostrarLetra)
-
         nTom = findViewById(R.id.textViewMostrarTom)
 
         val bundle = intent.extras
@@ -75,6 +70,18 @@ class CreateTwo : AppCompatActivity() {
 
         fun clickNote(view: View) {
             Toast.makeText(this, ((view) as TextView).text, Toast.LENGTH_SHORT).show()
+        }
+
+        val btnSalvarArquivo = findViewById<Button>(R.id.btnSalvarArquivo)
+        btnSalvarArquivo.setOnClickListener {
+            try {
+                val fileOutputStream = openFileOutput(nMusica?.text.toString(),
+                    MODE_PRIVATE)
+                fileOutputStream.write(lMusica?.text.toString().toByteArray())
+                fileOutputStream.close()
+            } catch (e: IOException) {
+                e.printStackTrace()
+            }
         }
     }
 

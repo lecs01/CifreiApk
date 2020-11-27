@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">CifreiApk</string>
 
-    <string-array name="tom">
+    <string-array name="lista_de_tons_array">
         <item>C</item>
         <item>C#</item>
         <item>D</item>

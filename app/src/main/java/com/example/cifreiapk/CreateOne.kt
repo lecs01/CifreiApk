@@ -3,7 +3,6 @@ package com.example.cifreiapk
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
-import android.provider.AlarmClock.EXTRA_MESSAGE
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
@@ -17,10 +16,10 @@ class CreateOne : AppCompatActivity(), View.OnClickListener {
         setContentView(R.layout.create_one)
 
 
-        val spinner: Spinner = findViewById(R.id.spinner)
+        val spinner: Spinner = findViewById(R.id.spinnerListaDeTons)
         ArrayAdapter.createFromResource(
             this,
-            R.array.tom,
+            R.array.lista_de_tons_array,
             android.R.layout.simple_spinner_item
         ).also { adapter ->
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
