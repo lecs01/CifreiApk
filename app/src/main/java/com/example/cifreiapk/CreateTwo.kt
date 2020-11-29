@@ -6,23 +6,25 @@ import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import java.io.IOException
+import android.widget.TextView
+import android.widget.Toast
 
 class CreateTwo : AppCompatActivity() {
 
     var nMusica: TextView? = null
     var nArtista: TextView? = null
     var lMusica: TextView? = null
-
     var nTom: TextView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.create_two)
 
+        nTom = findViewById(R.id.textViewMostrarTom)
+
         nMusica = findViewById(R.id.textViewMostrarTitulo)
         nArtista = findViewById(R.id.textViewMostrarArtista)
         lMusica = findViewById(R.id.texViewMostrarLetra)
-        nTom = findViewById(R.id.textViewMostrarTom)
 
         val bundle = intent.extras
 
@@ -46,9 +48,9 @@ class CreateTwo : AppCompatActivity() {
         nMusica?.text = bundle!!.getString("nomeMusica", "Default")
         nArtista?.text = bundle!!.getString("nomeArtista", "Default")
         lMusica?.text = bundle!!.getString("letraMusica", "Default")
-        nTom?.text = bundle!!.getString("tomSelecionado")
 
         val indiceTomSelecionado = bundle!!.getString("tomSelecionado")
+        nTom?.text = bundle!!.getString("tomSelecionado")
 
         val listaDeAcordes = mapNotes[indiceTomSelecionado]
 
@@ -72,7 +74,7 @@ class CreateTwo : AppCompatActivity() {
             Toast.makeText(this, ((view) as TextView).text, Toast.LENGTH_SHORT).show()
         }
 
-        val btnSalvarArquivo = findViewById<Button>(R.id.btnSalvarArquivo)
+        /*val btnSalvarArquivo = findViewById<Button>(R.id.btnSalvarArquivo)
         btnSalvarArquivo.setOnClickListener {
             try {
                 val fileOutputStream = openFileOutput(nMusica?.text.toString(),
@@ -82,7 +84,7 @@ class CreateTwo : AppCompatActivity() {
             } catch (e: IOException) {
                 e.printStackTrace()
             }
-        }
+        }*/
     }
 
     fun voltarEdicao(view: View) {
@@ -91,7 +93,4 @@ class CreateTwo : AppCompatActivity() {
 
     }
 
-    fun salvarArquivo(view: View) {
-
-    }
 }
