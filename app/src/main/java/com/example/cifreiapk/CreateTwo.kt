@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
-import java.io.IOException
 import android.widget.TextView
 import android.widget.Toast
 
@@ -24,7 +23,7 @@ class CreateTwo : AppCompatActivity() {
 
         nMusica = findViewById(R.id.textViewMostrarTitulo)
         nArtista = findViewById(R.id.textViewMostrarArtista)
-        lMusica = findViewById(R.id.texViewMostrarLetra)
+        lMusica = findViewById(R.id.editViewMostrarLetra)
 
         val bundle = intent.extras
 
@@ -73,18 +72,6 @@ class CreateTwo : AppCompatActivity() {
         fun clickNote(view: View) {
             Toast.makeText(this, ((view) as TextView).text, Toast.LENGTH_SHORT).show()
         }
-
-        /*val btnSalvarArquivo = findViewById<Button>(R.id.btnSalvarArquivo)
-        btnSalvarArquivo.setOnClickListener {
-            try {
-                val fileOutputStream = openFileOutput(nMusica?.text.toString(),
-                    MODE_PRIVATE)
-                fileOutputStream.write(lMusica?.text.toString().toByteArray())
-                fileOutputStream.close()
-            } catch (e: IOException) {
-                e.printStackTrace()
-            }
-        }*/
     }
 
     fun voltarEdicao(view: View) {
@@ -92,5 +79,4 @@ class CreateTwo : AppCompatActivity() {
         startActivity(intent)
 
     }
-
 }
