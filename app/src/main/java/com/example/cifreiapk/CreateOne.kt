@@ -1,16 +1,23 @@
 package com.example.cifreiapk
 
 import android.app.Activity
+import android.app.ProgressDialog
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import com.example.cifreiapk.model.Cifra
 import com.example.cifreiapk.utils.TextoUtils
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.DatabaseReference.CompletionListener
+import com.google.firebase.database.FirebaseDatabase
 
 class CreateOne : AppCompatActivity(), View.OnClickListener {
 
     var tomSelecionado: String = "C"
+    var dataSaved = false
+    lateinit var id: String
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.create_one)
@@ -53,16 +60,47 @@ class CreateOne : AppCompatActivity(), View.OnClickListener {
         var letraMusica: EditText? = findViewById(R.id.letraMusica)
 
         if (nomeMusica?.text.toString().isEmpty() || nomeArtista?.text.toString()
-                .isEmpty() || letraMusica?.text.toString().isEmpty()) {
+                .isEmpty() || letraMusica?.text.toString().isEmpty()
+        ) {
             Toast.makeText(this, "Insira os dados para criar a cifra!", Toast.LENGTH_SHORT).show()
         } else {
+            val nomeMusica = nomeMusica!!.text.toString()
+            val nomeArtista = nomeArtista!!.text.toString()
+            val letraMusica = TextoUtils.convertWithBlankLines(letraMusica!!.text.toString())
+
+            val cifra = Cifra(nomeMusica, nomeArtista, letraMusica, tomSelecionado)
+
             val bundle = Bundle()
-            bundle.putString("nomeMusica", nomeMusica!!.text.toString())
-            bundle.putString("nomeArtista", nomeArtista!!.text.toString())
-            bundle.putString("letraMusica", TextoUtils.convertWithBlankLines(letraMusica!!.text.toString()))
+            bundle.putString("nomeMusica", nomeMusica)
+            bundle.putString("nomeArtista", nomeArtista)
+            bundle.putString("letraMusica", letraMusica)
             bundle.putString("tomSelecionado", tomSelecionado)
+
+            val database = FirebaseDatabase.getInstance()
+            val reference = database.getReference("cifras")
+
+            val key = reference.push().key
+
+            if (key != null) {
+                reference.child(key).setValue(cifra) { error, ref ->
+                    val message = ProgressDialog(this)
+                    message.setTitle("Aguarde")
+                    message.setMessage("Salvando dados...")
+                    message.show()
+                    if (error != null) {
+                        dataSaved = true
+                        message.dismiss()
+                    }
+                }
+            }
+
+            key.let {
+                bundle.putString("id", key)
+            }
+
             intent = Intent(this, CreateTwo::class.java)
             intent.putExtras(bundle)
+
             startActivity(intent)
         }
     }
@@ -71,19 +109,5 @@ class CreateOne : AppCompatActivity(), View.OnClickListener {
         val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)
         finish()
-    }
-}
-
-private fun Bundle.putInt(s: String, tomSelecionado: String) {
-
-}
-
-class SpinnerActivity : Activity(), AdapterView.OnItemSelectedListener {
-    override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
-        TODO("Not yet implemented")
-    }
-
-    override fun onNothingSelected(p0: AdapterView<*>?) {
-        TODO("Not yet implemented")
     }
 }

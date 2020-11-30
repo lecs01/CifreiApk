@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "776213764228",
+    "firebase_url": "https://e104-firebase.firebaseio.com",
+    "project_id": "e104-firebase",
+    "storage_bucket": "e104-firebase.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:776213764228:android:aae462cdcfec5d5f1a0ad1",
+        "android_client_info": {
+          "package_name": "br.com.esdras.e104_pam2_firebase_upload_image"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "776213764228-7gflpbrpcjhj9md4j7ro7mb5s3ts2p35.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBeZfF3M0vYT6sONGi6YgIoJUmb_jkn2Lo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "776213764228-7gflpbrpcjhj9md4j7ro7mb5s3ts2p35.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:776213764228:android:ee612aba07a7593d1a0ad1",
+        "android_client_info": {
+          "package_name": "com.example.cifreiapk"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "776213764228-7gflpbrpcjhj9md4j7ro7mb5s3ts2p35.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBeZfF3M0vYT6sONGi6YgIoJUmb_jkn2Lo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "776213764228-7gflpbrpcjhj9md4j7ro7mb5s3ts2p35.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
