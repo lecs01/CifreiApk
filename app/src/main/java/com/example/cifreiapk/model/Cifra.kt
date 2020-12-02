@@ -9,9 +9,9 @@ class Cifra {
     constructor()
 
     constructor(nomeMusica: String, nomeArtista: String, letraMusica: String, tomSelecionado: String) {
-        this.nomeMusica = nomeMusica
-        this.nomeArtista = nomeArtista
-        this.letraMusica = letraMusica
-        this.tomSelecionado = tomSelecionado
+        this.nomeMusica = nomeMusica.toString()
+        this.nomeArtista = nomeArtista.toString()
+        this.letraMusica = letraMusica.toString()
+        this.tomSelecionado = tomSelecionado.toString()
     }
 }

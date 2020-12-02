@@ -301,7 +301,6 @@
         android:layout_marginBottom="10dp"
         android:background="@drawable/button_orange"
         android:fontFamily="@font/armata"
-        android:onClick="salvarArquivo"
         android:text="Salvar"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"

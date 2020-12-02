@@ -1,6 +1,5 @@
 package com.example.cifreiapk
 
-import android.app.Activity
 import android.app.ProgressDialog
 import android.content.Intent
 import android.os.Bundle
@@ -9,11 +8,9 @@ import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.example.cifreiapk.model.Cifra
 import com.example.cifreiapk.utils.TextoUtils
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.DatabaseReference.CompletionListener
 import com.google.firebase.database.FirebaseDatabase
 
-class CreateOne : AppCompatActivity(), View.OnClickListener {
+class CreateOne : AppCompatActivity() {
 
     var tomSelecionado: String = "C"
     var dataSaved = false
@@ -50,10 +47,12 @@ class CreateOne : AppCompatActivity(), View.OnClickListener {
 
         var btnProximo: Button? = null
         btnProximo = findViewById(R.id.btnProximo)
-        btnProximo?.setOnClickListener(this)
+        btnProximo?.setOnClickListener{
+            proximaEdicao()
+        }
     }
 
-    override fun onClick(view: View) {
+    fun proximaEdicao() {
 
         var nomeMusica: EditText? = findViewById(R.id.nomeMusica)
         var nomeArtista: EditText? = findViewById(R.id.nomeArtista)
@@ -87,7 +86,7 @@ class CreateOne : AppCompatActivity(), View.OnClickListener {
                     message.setTitle("Aguarde")
                     message.setMessage("Salvando dados...")
                     message.show()
-                    if (error != null) {
+                    if (error == null) {
                         dataSaved = true
                         message.dismiss()
                     }

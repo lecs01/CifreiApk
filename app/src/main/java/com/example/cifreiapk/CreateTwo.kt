@@ -1,5 +1,6 @@
 package com.example.cifreiapk
 
+import android.app.ProgressDialog
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
@@ -7,6 +8,9 @@ import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.content.ContextCompat.startActivity
+import com.example.cifreiapk.model.Cifra
+import com.google.firebase.database.FirebaseDatabase
 
 class CreateTwo : AppCompatActivity() {
 
@@ -18,6 +22,8 @@ class CreateTwo : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.create_two)
+
+//        var dataSaved = false
 
         nTom = findViewById(R.id.textViewMostrarTom)
 
@@ -44,30 +50,62 @@ class CreateTwo : AppCompatActivity() {
             "Bb" to listOf<String>("Bb", "Cm", "Dm", "Eb", "F", "Gm", "Aø"),
         )
 
-        nMusica?.text = bundle!!.getString("nomeMusica", "Default")
-        nArtista?.text = bundle!!.getString("nomeArtista", "Default")
-        lMusica?.text = bundle!!.getString("letraMusica", "Default")
+//        fun salvarCifra() {
 
-        val indiceTomSelecionado = bundle!!.getString("tomSelecionado")
-        nTom?.text = bundle!!.getString("tomSelecionado")
+            nMusica?.text = bundle!!.getString("nomeMusica", "Default")
+            nArtista?.text = bundle!!.getString("nomeArtista", "Default")
+            lMusica?.text = bundle!!.getString("letraMusica", "Default")
 
-        val listaDeAcordes = mapNotes[indiceTomSelecionado]
+            val indiceTomSelecionado = bundle!!.getString("tomSelecionado")
+            nTom?.text = bundle!!.getString("tomSelecionado")
 
-        val acordeI = findViewById<TextView>(R.id.textViewAcordeI)
-        val acordeII = findViewById<TextView>(R.id.textViewAcordeII)
-        val acordeIII = findViewById<TextView>(R.id.textViewAcordeIII)
-        val acordeIV = findViewById<TextView>(R.id.textViewAcordeIV)
-        val acordeV = findViewById<TextView>(R.id.textViewAcordeV)
-        val acordeVI = findViewById<TextView>(R.id.textViewAcordeVI)
-        val acordeVII = findViewById<TextView>(R.id.textViewAcordeVII)
+            val listaDeAcordes = mapNotes[indiceTomSelecionado]
 
-        acordeI.text = listaDeAcordes?.get(0)
-        acordeII.text = listaDeAcordes?.get(1)
-        acordeIII.text = listaDeAcordes?.get(2)
-        acordeIV.text = listaDeAcordes?.get(3)
-        acordeV.text = listaDeAcordes?.get(4)
-        acordeVI.text = listaDeAcordes?.get(5)
-        acordeVII.text = listaDeAcordes?.get(6)
+            val acordeI = findViewById<TextView>(R.id.textViewAcordeI)
+            val acordeII = findViewById<TextView>(R.id.textViewAcordeII)
+            val acordeIII = findViewById<TextView>(R.id.textViewAcordeIII)
+            val acordeIV = findViewById<TextView>(R.id.textViewAcordeIV)
+            val acordeV = findViewById<TextView>(R.id.textViewAcordeV)
+            val acordeVI = findViewById<TextView>(R.id.textViewAcordeVI)
+            val acordeVII = findViewById<TextView>(R.id.textViewAcordeVII)
+
+            acordeI.text = listaDeAcordes?.get(0)
+            acordeII.text = listaDeAcordes?.get(1)
+            acordeIII.text = listaDeAcordes?.get(2)
+            acordeIV.text = listaDeAcordes?.get(3)
+            acordeV.text = listaDeAcordes?.get(4)
+            acordeVI.text = listaDeAcordes?.get(5)
+            acordeVII.text = listaDeAcordes?.get(6)
+
+            /*val cifra = Cifra(nMusica, nArtista, lMusica, nTom)
+
+            val database = FirebaseDatabase.getInstance()
+            val reference = database.getReference("cifras")
+
+            val key = reference.push().key
+
+            if (key != null) {
+                reference.child(key).setValue(cifra) { error, ref ->
+                    val message = ProgressDialog(this)
+                    message.setTitle("Aguarde")
+                    message.setMessage("Salvando dados...")
+                    message.show()
+                    if (error == null) {
+                        dataSaved = true
+                        message.dismiss()
+                    }
+                }
+            }
+
+            key.let {
+                bundle.putString("id", key)
+            }
+
+            intent = Intent(this, CreateTwo::class.java)
+            intent.putExtras(bundle)
+
+            startActivity(intent)
+        }*/
 
         fun clickNote(view: View) {
             Toast.makeText(this, ((view) as TextView).text, Toast.LENGTH_SHORT).show()
