@@ -4,7 +4,6 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import com.google.firebase.database.FirebaseDatabase
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -13,7 +12,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun criarCifra(view: View) {
-        val intent = Intent(this, CreateOne::class.java)
+        val intent = Intent(this, CriarCifraActivity::class.java)
         startActivity(intent)
     }
 }

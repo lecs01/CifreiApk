@@ -16,9 +16,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".CreateOne"
+        <activity android:name=".CriarCifraActivity"
             android:windowSoftInputMode="stateHidden|adjustResize"/>
-        <activity android:name=".CreateTwo"
+        <activity android:name=".InserirNotasActivity"
             android:windowSoftInputMode="stateHidden"/>
     </application>
 

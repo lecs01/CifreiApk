@@ -10,14 +10,14 @@ import com.example.cifreiapk.model.Cifra
 import com.example.cifreiapk.utils.TextoUtils
 import com.google.firebase.database.FirebaseDatabase
 
-class CreateOne : AppCompatActivity() {
+class CriarCifraActivity : AppCompatActivity() {
 
     var tomSelecionado: String = "C"
     var dataSaved = false
     lateinit var id: String
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.create_one)
+        setContentView(R.layout.criar_cifra)
 
 
         val spinner: Spinner = findViewById(R.id.spinnerListaDeTons)
@@ -97,7 +97,7 @@ class CreateOne : AppCompatActivity() {
                 bundle.putString("id", key)
             }
 
-            intent = Intent(this, CreateTwo::class.java)
+            intent = Intent(this, InserirNotasActivity::class.java)
             intent.putExtras(bundle)
 
             startActivity(intent)

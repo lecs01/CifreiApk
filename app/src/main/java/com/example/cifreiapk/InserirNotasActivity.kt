@@ -1,18 +1,13 @@
 package com.example.cifreiapk
 
-import android.app.ProgressDialog
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import android.widget.TextView
 import android.widget.Toast
-import androidx.core.content.ContextCompat.startActivity
-import com.example.cifreiapk.model.Cifra
-import com.google.firebase.database.FirebaseDatabase
 
-class CreateTwo : AppCompatActivity() {
+class InserirNotasActivity : AppCompatActivity() {
 
     var nMusica: TextView? = null
     var nArtista: TextView? = null
@@ -21,9 +16,7 @@ class CreateTwo : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.create_two)
-
-//        var dataSaved = false
+        setContentView(R.layout.inserir_notas)
 
         nTom = findViewById(R.id.textViewMostrarTom)
 
@@ -50,8 +43,6 @@ class CreateTwo : AppCompatActivity() {
             "Bb" to listOf<String>("Bb", "Cm", "Dm", "Eb", "F", "Gm", "Aø"),
         )
 
-//        fun salvarCifra() {
-
             nMusica?.text = bundle!!.getString("nomeMusica", "Default")
             nArtista?.text = bundle!!.getString("nomeArtista", "Default")
             lMusica?.text = bundle!!.getString("letraMusica", "Default")
@@ -77,43 +68,13 @@ class CreateTwo : AppCompatActivity() {
             acordeVI.text = listaDeAcordes?.get(5)
             acordeVII.text = listaDeAcordes?.get(6)
 
-            /*val cifra = Cifra(nMusica, nArtista, lMusica, nTom)
-
-            val database = FirebaseDatabase.getInstance()
-            val reference = database.getReference("cifras")
-
-            val key = reference.push().key
-
-            if (key != null) {
-                reference.child(key).setValue(cifra) { error, ref ->
-                    val message = ProgressDialog(this)
-                    message.setTitle("Aguarde")
-                    message.setMessage("Salvando dados...")
-                    message.show()
-                    if (error == null) {
-                        dataSaved = true
-                        message.dismiss()
-                    }
-                }
-            }
-
-            key.let {
-                bundle.putString("id", key)
-            }
-
-            intent = Intent(this, CreateTwo::class.java)
-            intent.putExtras(bundle)
-
-            startActivity(intent)
-        }*/
-
         fun clickNote(view: View) {
             Toast.makeText(this, ((view) as TextView).text, Toast.LENGTH_SHORT).show()
         }
     }
 
     fun voltarEdicao(view: View) {
-        val intent = Intent(this, CreateOne::class.java)
+        val intent = Intent(this, CriarCifraActivity::class.java)
         startActivity(intent)
 
     }
