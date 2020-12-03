@@ -4,9 +4,9 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:icon="@mipmap/ic_launcher_cifrei_foreground"
+        android:label="Cifrei"
+        android:roundIcon="@mipmap/ic_launcher_cifrei_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CifreiApk">
         <activity android:name=".MainActivity">
@@ -19,6 +19,8 @@
         <activity android:name=".CriarCifraActivity"
             android:windowSoftInputMode="stateHidden|adjustResize"/>
         <activity android:name=".InserirNotasActivity"
+            android:windowSoftInputMode="stateHidden"/>
+        <activity android:name=".VisualizarCifraActivity"
             android:windowSoftInputMode="stateHidden"/>
     </application>
 

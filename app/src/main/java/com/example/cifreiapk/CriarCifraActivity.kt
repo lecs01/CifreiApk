@@ -13,8 +13,10 @@ import com.google.firebase.database.FirebaseDatabase
 class CriarCifraActivity : AppCompatActivity() {
 
     var tomSelecionado: String = "C"
+/*
     var dataSaved = false
     lateinit var id: String
+*/
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.criar_cifra)
@@ -67,7 +69,7 @@ class CriarCifraActivity : AppCompatActivity() {
             val nomeArtista = nomeArtista!!.text.toString()
             val letraMusica = TextoUtils.convertWithBlankLines(letraMusica!!.text.toString())
 
-            val cifra = Cifra(nomeMusica, nomeArtista, letraMusica, tomSelecionado)
+//            val cifra = Cifra(nomeMusica, nomeArtista, letraMusica, tomSelecionado)
 
             val bundle = Bundle()
             bundle.putString("nomeMusica", nomeMusica)
@@ -75,6 +77,7 @@ class CriarCifraActivity : AppCompatActivity() {
             bundle.putString("letraMusica", letraMusica)
             bundle.putString("tomSelecionado", tomSelecionado)
 
+/*
             val database = FirebaseDatabase.getInstance()
             val reference = database.getReference("cifras")
 
@@ -96,17 +99,19 @@ class CriarCifraActivity : AppCompatActivity() {
             key.let {
                 bundle.putString("id", key)
             }
+*/
 
             intent = Intent(this, InserirNotasActivity::class.java)
             intent.putExtras(bundle)
-
             startActivity(intent)
         }
     }
 
+/*
     fun voltarMain(view: View) {
         val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)
         finish()
     }
+*/
 }
