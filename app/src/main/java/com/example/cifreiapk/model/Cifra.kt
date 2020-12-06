@@ -3,6 +3,7 @@ package com.example.cifreiapk.model
 import android.widget.TextView
 
 class Cifra {
+    var id = ""
     var letraMusica = ""
     var nomeArtista = ""
     var nomeMusica = ""
@@ -11,9 +12,9 @@ class Cifra {
     constructor()
 
     constructor(tituloDaMusica: String, nomeDoArtista: String, letraDaMusica: String, nTom: String) {
-        this.letraMusica = tituloDaMusica.toString()
-        this.nomeArtista = nomeDoArtista.toString()
-        this.nomeMusica = letraDaMusica.toString()
-        this.tomSelecionado = nTom.toString()
+        this.letraMusica = letraDaMusica
+        this.nomeArtista = nomeDoArtista
+        this.nomeMusica = tituloDaMusica
+        this.tomSelecionado = nTom
     }
 }

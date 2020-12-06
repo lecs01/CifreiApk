@@ -10,7 +10,7 @@ import com.example.cifreiapk.model.Cifra
 import com.example.cifreiapk.model.CifraAdapter
 import com.google.firebase.database.*
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), ItemClickable {
 
     lateinit var recyclerView: RecyclerView
 //    lateinit var adapter: CifraAdapter
@@ -40,10 +40,12 @@ class MainActivity : AppCompatActivity() {
                 clearAll()
                 snapshot.children.forEach {
                     val cifra = it.getValue(Cifra::class.java)
+                    cifra!!.id = it.key.toString()
                     cifrasList.add(cifra)
                 }
-                val adapter = CifraAdapter(applicationContext, cifrasList)
+                val adapter = CifraAdapter(applicationContext, cifrasList, this@MainActivity)
                 recyclerView.adapter = adapter
+
                 adapter.notifyDataSetChanged()
             }
 
@@ -53,7 +55,8 @@ class MainActivity : AppCompatActivity() {
 
         }
 
-        val query = databaseReference.child("cifras").addValueEventListener(listener)// To display the Recycler view linearly
+        val query = databaseReference.child("cifras").addValueEventListener(listener)
+    // To display the Recycler view linearly
 
         // To display the Recycler view linearly
 //        recyclerView.setLayoutManager(
@@ -100,5 +103,16 @@ class MainActivity : AppCompatActivity() {
         cifrasList.clear()
         recyclerView.adapter?.notifyDataSetChanged()
         cifrasList = mutableListOf()
+    }
+
+    override fun onItemClick(cifra: Cifra) {
+        val bundle = Bundle()
+        bundle.putString("nomeMusica", cifra.nomeMusica)
+        bundle.putString("nomeArtista", cifra.nomeArtista)
+        bundle.putString("letraMusica", cifra.letraMusica)
+        bundle.putString("tomSelecionado", cifra.tomSelecionado)
+        var intent = Intent(applicationContext, VisualizarCifraActivity::class.java)
+        intent.putExtras(bundle)
+        startActivity(intent)
     }
 }

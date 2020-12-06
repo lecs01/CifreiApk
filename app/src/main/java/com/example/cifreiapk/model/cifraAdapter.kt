@@ -6,10 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.cifreiapk.ItemClickable
 import com.example.cifreiapk.R
 
 
-class CifraAdapter(val context: Context, val listCifras: MutableList<Cifra?>) :
+class CifraAdapter(val context: Context, val listCifras: MutableList<Cifra?>, private val itemClickListener: ItemClickable) :
     RecyclerView.Adapter<CifraAdapter.ViewHolder>() {
 
 
@@ -23,6 +24,10 @@ class CifraAdapter(val context: Context, val listCifras: MutableList<Cifra?>) :
         holder.nomeArtista.text = listCifras[position]?.nomeArtista
         holder.tituloMusica.text = listCifras[position]?.nomeMusica
         holder.tom.text = listCifras[position]?.tomSelecionado
+        holder.itemView.setOnClickListener{
+            val cifra = listCifras.get(position)
+            cifra?.let { c -> itemClickListener.onItemClick(c) }
+        }
     }
 
     override fun getItemCount(): Int {
