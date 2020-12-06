@@ -56,25 +56,25 @@ class CriarCifraActivity : AppCompatActivity() {
 
     fun proximaEdicao() {
 
-        var nomeMusica: EditText? = findViewById(R.id.nomeMusica)
-        var nomeArtista: EditText? = findViewById(R.id.nomeArtista)
-        var letraMusica: EditText? = findViewById(R.id.letraMusica)
+        val nomeMusica: EditText? = findViewById(R.id.nomeMusica)
+        val nomeArtista: EditText? = findViewById(R.id.nomeArtista)
+        val letraMusica: EditText? = findViewById(R.id.letraMusica)
 
         if (nomeMusica?.text.toString().isEmpty() || nomeArtista?.text.toString()
                 .isEmpty() || letraMusica?.text.toString().isEmpty()
         ) {
             Toast.makeText(this, "Insira os dados para criar a cifra!", Toast.LENGTH_SHORT).show()
         } else {
-            val nomeMusica = nomeMusica!!.text.toString()
-            val nomeArtista = nomeArtista!!.text.toString()
-            val letraMusica = TextoUtils.convertWithBlankLines(letraMusica!!.text.toString())
+            val nomeMusicaValue = nomeMusica!!.text.toString()
+            val nomeArtistaValue = nomeArtista!!.text.toString()
+            val letraMusicaValue = TextoUtils.convertWithBlankLines(letraMusica!!.text.toString())
 
 //            val cifra = Cifra(nomeMusica, nomeArtista, letraMusica, tomSelecionado)
 
             val bundle = Bundle()
-            bundle.putString("nomeMusica", nomeMusica)
-            bundle.putString("nomeArtista", nomeArtista)
-            bundle.putString("letraMusica", letraMusica)
+            bundle.putString("nomeMusica", nomeMusicaValue)
+            bundle.putString("nomeArtista", nomeArtistaValue)
+            bundle.putString("letraMusica", letraMusicaValue)
             bundle.putString("tomSelecionado", tomSelecionado)
 
 /*

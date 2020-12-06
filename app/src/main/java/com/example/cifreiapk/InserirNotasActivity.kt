@@ -1,9 +1,9 @@
 package com.example.cifreiapk
 
 import android.app.ProgressDialog
-import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import android.widget.TextView
 import com.example.cifreiapk.model.Cifra
@@ -13,7 +13,7 @@ class InserirNotasActivity : AppCompatActivity() {
 
     var tituloDaMusica: TextView? = null
     var nomeDoArtista: TextView? = null
-    var letraDaMusica: TextView? = null
+    var letraDaMusica: EditText? = null
     var nTom: TextView? = null
 
     var dataSaved = false
@@ -27,7 +27,7 @@ class InserirNotasActivity : AppCompatActivity() {
 
         tituloDaMusica = findViewById(R.id.textViewTitulo)
         nomeDoArtista = findViewById(R.id.textViewArtista)
-        letraDaMusica = findViewById(R.id.editViewLetra)
+        letraDaMusica = findViewById(R.id.editViewLetraInserir)
 
         val bundle = intent.extras
 
@@ -49,8 +49,8 @@ class InserirNotasActivity : AppCompatActivity() {
         )
 
         tituloDaMusica?.text = bundle!!.getString("nomeMusica", "Default")
-        nomeDoArtista?.text = bundle!!.getString("nomeArtista", "Default")
-        letraDaMusica?.text = bundle!!.getString("letraMusica", "Default")
+        nomeDoArtista?.text = bundle.getString("nomeArtista", "Default")
+        letraDaMusica?.setText(bundle.getString("letraMusica", "Default"), TextView.BufferType.EDITABLE)
 
         val indiceTomSelecionado = bundle!!.getString("tomSelecionado")
         nTom?.text = bundle!!.getString("tomSelecionado")
@@ -83,7 +83,10 @@ class InserirNotasActivity : AppCompatActivity() {
 
     fun salvarCifra(){
 
-        val cifra = Cifra(tituloDaMusica, nomeDoArtista, letraDaMusica, nTom)
+        val cifra = Cifra(tituloDaMusica?.text as String,
+            nomeDoArtista?.text.toString(),
+            letraDaMusica?.text.toString(),
+            nTom?.text.toString())
 
         val database = FirebaseDatabase.getInstance()
         val reference = database.getReference("cifras")
@@ -104,18 +107,18 @@ class InserirNotasActivity : AppCompatActivity() {
         }
 
         val bundle2 = Bundle()
-        bundle2.putString("tituloMusica", tituloDaMusica.toString())
-        bundle2.putString("nomeArtista", nomeDoArtista.toString())
-        bundle2.putString("letraMusica", letraDaMusica.toString())
-        bundle2.putString("tom", nTom.toString())
+        bundle2.putString("tituloMusica", tituloDaMusica!!.text.toString())
+        bundle2.putString("nomeArtista", nomeDoArtista!!.text.toString())
+        bundle2.putString("letraMusica", letraDaMusica!!.text.toString())
+        bundle2.putString("tom", nTom!!.text.toString())
 
         key.let {
             bundle2.putString("id", key)
         }
 
-        intent = Intent(this, VisualizarCifraActivity::class.java)
-        intent.putExtras(bundle2)
-        startActivity(intent)
+//        intent = Intent(this, VisualizarCifraActivity::class.java)
+//        intent.putExtras(bundle2)
+//        startActivity(intent)
 
 /*
         fun clickNote(view: View) {

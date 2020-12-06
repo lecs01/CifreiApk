@@ -1,44 +1,37 @@
 package com.example.cifreiapk.model
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cifreiapk.R
-import com.firebase.ui.database.FirebaseRecyclerAdapter
-import com.firebase.ui.database.FirebaseRecyclerOptions
 
-class cifraAdapter(
-    options: FirebaseRecyclerOptions<Cifra>,
-) : FirebaseRecyclerAdapter<Cifra, cifraAdapter.cifrasViewholder>(options) {
-    override fun onBindViewHolder(
-        holder: cifrasViewholder,
-        position: Int, model: Cifra,
-    ) {
-        holder.tituloDaMusica.setText(model.tituloDaMusica.toString())
-        holder.nomeDoArtista.setText(model.nomeDoArtista.toString())
-        holder.nTom.setText(model.nTom.toString())
+
+class CifraAdapter(val context: Context, val listCifras: MutableList<Cifra?>) :
+    RecyclerView.Adapter<CifraAdapter.ViewHolder>() {
+
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CifraAdapter.ViewHolder {
+        val view =
+            LayoutInflater.from(context).inflate(R.layout.recycler_view_cifras, parent, false)
+        return ViewHolder(view);
     }
 
-    override fun onCreateViewHolder(
-        parent: ViewGroup,
-        viewType: Int,
-    ): cifrasViewholder {
-        val view: View = LayoutInflater.from(parent.context)
-            .inflate(R.layout.recycler_view_cifras, parent, false)
-        return cifrasViewholder(view)
+    override fun onBindViewHolder(holder: CifraAdapter.ViewHolder, position: Int) {
+        holder.nomeArtista.text = listCifras[position]?.nomeArtista
+        holder.tituloMusica.text = listCifras[position]?.nomeMusica
+        holder.tom.text = listCifras[position]?.tomSelecionado
     }
 
-    inner class cifrasViewholder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        lateinit var tituloDaMusica: TextView
-        lateinit var nomeDoArtista: TextView
-        lateinit var nTom: TextView
+    override fun getItemCount(): Int {
+       return listCifras.size
+    }
 
-        init {
-            tituloDaMusica = itemView.findViewById(R.id.tvTituloDaMusica)
-            nomeDoArtista = itemView.findViewById(R.id.tvNomeDoArtista)
-            nTom = itemView.findViewById(R.id.tvTom)
-        }
+    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        val tituloMusica: TextView = itemView.findViewById(R.id.tvTituloDaMusica)
+        val nomeArtista: TextView = itemView.findViewById(R.id.tvNomeDoArtista)
+        val tom: TextView = itemView.findViewById(R.id.tvTom)
     }
 }
