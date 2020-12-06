@@ -18,7 +18,6 @@ class cifraAdapter(
     ) {
         holder.tituloDaMusica.setText(model.tituloDaMusica.toString())
         holder.nomeDoArtista.setText(model.nomeDoArtista.toString())
-        holder.letraDaMusica.setText(model.letraDaMusica.toString())
         holder.nTom.setText(model.nTom.toString())
     }
 
@@ -27,21 +26,19 @@ class cifraAdapter(
         viewType: Int,
     ): cifrasViewholder {
         val view: View = LayoutInflater.from(parent.context)
-            .inflate(R.layout.recycler_view_cifras, parent, false) as TextView
+            .inflate(R.layout.recycler_view_cifras, parent, false)
         return cifrasViewholder(view)
     }
 
     inner class cifrasViewholder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         lateinit var tituloDaMusica: TextView
         lateinit var nomeDoArtista: TextView
-        lateinit var letraDaMusica: TextView
         lateinit var nTom: TextView
 
         init {
-            tituloDaMusica = itemView.findViewById(R.id.textViewTitulo)
-            nomeDoArtista = itemView.findViewById(R.id.textViewArtista)
-            letraDaMusica = itemView.findViewById(R.id.editViewLetra)
-            nTom = itemView.findViewById(R.id.textViewTom)
+            tituloDaMusica = itemView.findViewById(R.id.tvTituloDaMusica)
+            nomeDoArtista = itemView.findViewById(R.id.tvNomeDoArtista)
+            nTom = itemView.findViewById(R.id.tvTom)
         }
     }
 }
