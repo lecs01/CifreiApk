@@ -107,11 +107,11 @@ class MainActivity : AppCompatActivity(), ItemClickable {
 
     override fun onItemClick(cifra: Cifra) {
         val bundle = Bundle()
-        bundle.putString("nomeMusica", cifra.nomeMusica)
+        bundle.putString("tituloMusica", cifra.nomeMusica)
         bundle.putString("nomeArtista", cifra.nomeArtista)
         bundle.putString("letraMusica", cifra.letraMusica)
-        bundle.putString("tomSelecionado", cifra.tomSelecionado)
-        var intent = Intent(applicationContext, VisualizarCifraActivity::class.java)
+        bundle.putString("tom", cifra.tomSelecionado)
+        val intent = Intent(applicationContext, VisualizacaoCifraActivity::class.java)
         intent.putExtras(bundle)
         startActivity(intent)
     }

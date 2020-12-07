@@ -29,7 +29,7 @@ class TextoUtils {
         fun fillBlankLine(size: Int) : String{
             var blankLine = " "
             for (x in 0 until size) {
-                blankLine += "  "
+                blankLine += "                        "
             }
             return blankLine
         }

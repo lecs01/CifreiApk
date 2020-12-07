@@ -1,6 +1,7 @@
 package com.example.cifreiapk
 
 import android.app.ProgressDialog
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
@@ -23,10 +24,10 @@ class InserirNotasActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.inserir_notas)
 
-        nTom = findViewById(R.id.textViewTom)
+        nTom = findViewById(R.id.tvMostrarTom)
 
-        tituloDaMusica = findViewById(R.id.textViewTitulo)
-        nomeDoArtista = findViewById(R.id.textViewArtista)
+        tituloDaMusica = findViewById(R.id.tvMostrarTitulo)
+        nomeDoArtista = findViewById(R.id.tvMostrarArtista)
         letraDaMusica = findViewById(R.id.editViewLetraInserir)
 
         val bundle = intent.extras
@@ -116,9 +117,9 @@ class InserirNotasActivity : AppCompatActivity() {
             bundle2.putString("id", key)
         }
 
-//        intent = Intent(this, VisualizarCifraActivity::class.java)
-//        intent.putExtras(bundle2)
-//        startActivity(intent)
+        intent = Intent(this, VisualizacaoCifraActivity::class.java)
+        intent.putExtras(bundle2)
+        startActivity(intent)
 
 /*
         fun clickNote(view: View) {

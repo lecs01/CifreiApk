@@ -24,6 +24,8 @@
             android:windowSoftInputMode="stateHidden"/>
         <activity android:name=".VisualizarCifraActivity"
             android:windowSoftInputMode="stateHidden"/>
+        <activity android:name=".VisualizacaoCifraActivity"
+                android:windowSoftInputMode="stateHidden"/>
     </application>
 
 </manifest>

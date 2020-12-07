@@ -18,11 +18,11 @@ class VisualizarCifraActivity : AppCompatActivity(){
         setContentView(R.layout.visualizar_cifra)
         setTitle("Visualizacao Cifras")
 
-        tom = findViewById(R.id.textViewTom)
+        tom = findViewById(R.id.tvMostrarTom)
 
-        tituloMusica = findViewById(R.id.textViewTitulo)
-        nomeArtista = findViewById(R.id.textViewArtista)
-        letraMusica = findViewById(R.id.textViewLetra)
+        tituloMusica = findViewById(R.id.tvMostrarTitulo)
+        nomeArtista = findViewById(R.id.tvMostrarArtista)
+        letraMusica = findViewById(R.id.tvMostrarLetra)
 
         val bundle2 = intent.extras
 
