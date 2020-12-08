@@ -203,7 +203,7 @@
         app:layout_constraintEnd_toEndOf="@+id/fab"
         app:srcCompat="@drawable/ic_home" />
 
-   <!-- <com.google.android.material.floatingactionbutton.FloatingActionButton
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fabEdit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -221,7 +221,7 @@
         android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/fabEdit"
         app:layout_constraintEnd_toEndOf="@+id/fabEdit"
-        app:srcCompat="@drawable/ic_print" />-->
+        app:srcCompat="@drawable/ic_print" />
 
     <!--
     <Button

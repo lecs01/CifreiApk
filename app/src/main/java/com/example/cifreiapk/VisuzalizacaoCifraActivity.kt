@@ -1,17 +1,21 @@
 package com.example.cifreiapk
 
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.Paint
+import android.graphics.pdf.PdfDocument
+import android.graphics.pdf.PdfDocument.PageInfo
 import android.os.Bundle
 import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
-import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat.startActivity
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import kotlin.Lazy as Lazy
+import java.io.File
+import java.io.FileOutputStream
+import java.io.IOException
 
 class VisualizacaoCifraActivity : AppCompatActivity() {
 
@@ -53,23 +57,23 @@ class VisualizacaoCifraActivity : AppCompatActivity() {
 /*
         edit_btn = findViewById(R.id.fabEdit)
         print_btn = findViewById(R.id.fabPrint)
-*/
 
+*/
         fab_btn.setOnClickListener {
             onFabButtonClicked()
         }
-        home_btn.setOnClickListener { voltarInicio()
+        home_btn.setOnClickListener {
+            voltarInicio()
             Toast.makeText(this, "Início", Toast.LENGTH_SHORT).show()
         }
 /*
         edit_btn.setOnClickListener { voltarEdicao()
             Toast.makeText(this, "Editar", Toast.LENGTH_SHORT).show()
         }
-        print_btn.setOnClickListener {
+        print_btn.setOnClickListener { gerarPDF()
             Toast.makeText(this, "Imprimir", Toast.LENGTH_SHORT).show()
         }
 */
-
 
         tvMostrarTitulo = findViewById(R.id.tvMostrarTitulo)
         tvMostrarArtista = findViewById(R.id.tvMostrarArtista)
@@ -133,5 +137,31 @@ class VisualizacaoCifraActivity : AppCompatActivity() {
         val intent = Intent(this, CriarCifraActivity::class.java)
         startActivity(intent)
     }
+
+/*
+    fun gerarPDF() {
+        val documentoPDF = PdfDocument()
+        val detalhesDaPagina = PageInfo.Builder(210, 270, 1).create()
+        val novaPagina = documentoPDF.startPage(detalhesDaPagina)
+        val canvas = novaPagina.canvas
+        val corDoTexto = Paint()
+        corDoTexto.color = Color.RED
+        canvas.drawText(tvMostrarTitulo?.getText().toString(), 100f, 10f, corDoTexto)
+        corDoTexto.color = Color.BLUE
+        canvas.drawText(tvMostrarLetra?.getText().toString(), 100f, 20f, corDoTexto)
+        documentoPDF.finishPage(novaPagina)
+        val targetPdf = "/sdcard/pdfModeloNovo.pdf"
+        val filePath = File(targetPdf)
+        try {
+            documentoPDF.writeTo(FileOutputStream(filePath))
+            Toast.makeText(this, "PDF gerado com sucesso!", Toast.LENGTH_SHORT).show()
+        } catch (e: IOException) {
+            e.printStackTrace()
+            Toast.makeText(this, "Falha ao gerar PDF: " + e.toString(),
+                Toast.LENGTH_LONG).show()
+        }
+        documentoPDF.close()
+    }
+*/
 
 }
