@@ -123,6 +123,7 @@
         android:gravity="start|top"
         android:hint="Cole ou Digite a Letra Aqui..."
         android:inputType="textMultiLine"
+        android:selectAllOnFocus="true"
         android:visibility="visible"
         app:layout_constraintBottom_toTopOf="@+id/btnProximo"
         app:layout_constraintEnd_toEndOf="parent"
